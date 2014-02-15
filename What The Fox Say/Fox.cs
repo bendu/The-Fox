@@ -8,6 +8,7 @@ namespace What_The_Fox_Say
 {
     class Fox : Animal
     {
+        private static Random r = new Random();
         private static string[] sounds = { "Ring-ding-ding-ding-dingeringeding!",
                                          "Wa-pa-pa-pa-pa-pa-pow!",
                                          "Hatee-hatee-hatee-ho!",
@@ -20,7 +21,7 @@ namespace What_The_Fox_Say
                                          };
         public override string speak()
         {
-            int k = new Random().Next(sounds.Length);
+            int k = r.Next(sounds.Length);
 
             return sounds[k];
 

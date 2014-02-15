@@ -11,12 +11,12 @@ namespace What_The_Fox_Say
         static void Main(string[] args)
         {
 
-            Animal a = new Dog();
+            Fox x = new Fox();
 
-            Animal b = new Cat();
-
-            Console.WriteLine("Dog goes " + a.speak());
-            Console.WriteLine("Cat goes " + b.speak());
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine(x.speak());
+            }
 
             Console.ReadLine();
         }
