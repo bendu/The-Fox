@@ -41,8 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animal.cs" />
+    <Compile Include="Bird.cs" />
+    <Compile Include="Cat.cs" />
+    <Compile Include="Cow.cs" />
+    <Compile Include="Dog.cs" />
+    <Compile Include="Fish.cs" />
+    <Compile Include="Fox.cs" />
+    <Compile Include="Frog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seal.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
