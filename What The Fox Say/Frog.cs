@@ -8,7 +8,7 @@ namespace What_The_Fox_Say
 {
     class Frog : Animal
     {
-        public override string speak()
+        public override string Speak()
         {
             return "croak";
         }

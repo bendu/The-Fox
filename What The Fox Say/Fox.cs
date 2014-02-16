@@ -19,7 +19,7 @@ namespace What_The_Fox_Say
                                          "A-oo-oo-oo-ooo!",
                                          "The sound of the fox is an ancient secret mystery"
                                          };
-        public override string speak()
+        public override string Speak()
         {
             int k = r.Next(sounds.Length);
 

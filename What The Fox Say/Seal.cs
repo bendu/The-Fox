@@ -8,7 +8,7 @@ namespace What_The_Fox_Say
 {
     class Seal : Animal
     {
-        public override string speak()
+        public override string Speak()
         {
             return "OW OW OW";
         }

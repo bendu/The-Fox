@@ -8,6 +8,6 @@ namespace What_The_Fox_Say
 {
     abstract class Animal
     {
-        abstract public string speak();
+        abstract public string Speak();
     }
 }

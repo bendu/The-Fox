@@ -8,7 +8,7 @@ namespace What_The_Fox_Say
 {
     class Dog : Animal
     {
-        override public string speak()
+        override public string Speak()
         {
             return "Woof";
         }

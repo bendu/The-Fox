@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,14 +12,24 @@ namespace What_The_Fox_Say
         static void Main(string[] args)
         {
 
-            Fox x = new Fox();
-
-            for (int i = 0; i < 5; i++)
+            while (true)
             {
-                Console.WriteLine(x.speak());
-            }
+                Console.WriteLine("Type in a string or press return to exit");
+                string input = Console.ReadLine();
+                
+                if (input.Equals(""))
+                    break;
+                
+                InputDecoder id = new InputDecoder(input);
 
-            Console.ReadLine();
+                Animal a = id.GetAnimal();
+                
+                Type thisType = a.GetType();
+                MethodInfo theMethod = thisType.GetMethod(id.GetAction());
+
+                string output = (string) theMethod.Invoke(a, null);
+                Console.WriteLine(output);
+            }
         }
     }
 }

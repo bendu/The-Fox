@@ -8,7 +8,7 @@ namespace What_The_Fox_Say
 {
     class Bird : Animal
     {
-        public override string speak()
+        public override string Speak()
         {
             return "Tweet";
         }
