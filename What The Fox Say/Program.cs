@@ -21,7 +21,17 @@ namespace What_The_Fox_Say
                     || input.Equals("quit", StringComparison.OrdinalIgnoreCase))
                     break;
 
-                
+                if (input.Equals("about", StringComparison.OrdinalIgnoreCase))
+                {
+                    printAboutMessage();
+                    continue;
+                }
+
+                if (input.Contains("help") || input.Contains("halp") )
+                {
+                    printHelpMessage();
+                    continue;
+                }
                 
                 InputDecoder id = new InputDecoder(input);
 
@@ -30,6 +40,8 @@ namespace What_The_Fox_Say
                 if (a == null)
                 {
                     Console.WriteLine("unrecognized command");
+                    Console.WriteLine("Need help? Try typing 'halp'");
+                    Console.WriteLine();
                     continue;
                 }
 
@@ -48,7 +60,27 @@ namespace What_The_Fox_Say
                 {
                     Console.WriteLine("Could not figure out action for " + a.GetType().Name);
                 }
+
+                Console.WriteLine();
             }
+        }
+
+        static void printAboutMessage()
+        {
+            Console.WriteLine("Created by Ben Du as a fun GitHub project");
+            Console.WriteLine();
+            Console.WriteLine("Pls follow me on GitHub: bendu");
+            Console.WriteLine();
+            Console.WriteLine("Tip: try asking what the fox says multiple times.");
+            Console.WriteLine();
+        }
+
+        static void printHelpMessage()
+        {
+            Console.WriteLine("Type in freeform input and (hopefully) get a meaningful response!");
+            Console.WriteLine();
+            Console.WriteLine("Example: Cat says?");
+            Console.WriteLine();
         }
     }
 }
