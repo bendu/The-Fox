@@ -28,10 +28,11 @@ namespace What_The_Fox_Say
                 }
                 else
                 {
-
+                    // finds another animal if need to be
                     Type t;
                     do
                     {
+                        // rather questionable code...
                         t = animals.ElementAt(rand.Next(0, animals.Count)).Value;
                     } while (solvedAnimal.GetType().Equals(t));
 
@@ -54,12 +55,20 @@ namespace What_The_Fox_Say
 
                 if (solvedAnimal == null && animals.ContainsKey(lowercase))
                 {
+                    // determine animal
                     Type t;
                     animals.TryGetValue(lowercase, out t);
                     solvedAnimal = (Animal)Activator.CreateInstance(t);
                 }
+                else if (action == null && (lowercase.Contains("speak") || lowercase.Contains("say")
+                    || lowercase.Contains("go") || lowercase.Contains("sound")))
+                {
+                    // speak action
+                    action = "Speak";
+                }
                 else if (lowercase.Contains("n't") || lowercase.Equals("not") || lowercase.Contains("nt"))
                 {
+                    // counts the number of negative modifiers
                     freq++;
                 }
 
@@ -89,7 +98,7 @@ namespace What_The_Fox_Say
 
         public string GetAction()
         {
-            return "Speak";
+            return action;
         }
     }
 }

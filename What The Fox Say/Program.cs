@@ -14,29 +14,39 @@ namespace What_The_Fox_Say
 
             while (true)
             {
-                Console.WriteLine("Type in a string or press return to exit");
+                Console.Write("Command (return for exit): ");
                 string input = Console.ReadLine();
-                
-                if (input.Equals(""))
+
+                if (input.Equals("") || input.Equals("exit", StringComparison.OrdinalIgnoreCase)
+                    || input.Equals("quit", StringComparison.OrdinalIgnoreCase))
                     break;
+
+                
                 
                 InputDecoder id = new InputDecoder(input);
 
                 Animal a = id.GetAnimal();
-                
+
+                if (a == null)
+                {
+                    Console.WriteLine("unrecognized command");
+                    continue;
+                }
+
                 Type thisType = a.GetType();
 
-                if (thisType != null)
+                string action = id.GetAction();
+
+                if (action != null)
                 {
-                    MethodInfo theMethod = thisType.GetMethod(id.GetAction());
+                    MethodInfo theMethod = thisType.GetMethod(action);
 
                     string output = (string)theMethod.Invoke(a, null);
                     Console.WriteLine(output);
                 }
                 else
                 {
-                    Console.WriteLine("Could not figure out query");
-
+                    Console.WriteLine("Could not figure out action for " + a.GetType().Name);
                 }
             }
         }
