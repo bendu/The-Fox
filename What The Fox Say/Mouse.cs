@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace What_The_Fox_Say
 {
-    class Frog : Animal
+    class Mouse : Animal
     {
         public override string Speak()
         {
-            return "Croak";
+            return "Squeak";
         }
     }
 }

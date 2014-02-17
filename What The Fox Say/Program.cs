@@ -25,10 +25,19 @@ namespace What_The_Fox_Say
                 Animal a = id.GetAnimal();
                 
                 Type thisType = a.GetType();
-                MethodInfo theMethod = thisType.GetMethod(id.GetAction());
 
-                string output = (string) theMethod.Invoke(a, null);
-                Console.WriteLine(output);
+                if (thisType != null)
+                {
+                    MethodInfo theMethod = thisType.GetMethod(id.GetAction());
+
+                    string output = (string)theMethod.Invoke(a, null);
+                    Console.WriteLine(output);
+                }
+                else
+                {
+                    Console.WriteLine("Could not figure out query");
+
+                }
             }
         }
     }

@@ -9,6 +9,7 @@ namespace What_The_Fox_Say
     class InputDecoder
     {
         private static Dictionary<string, Type> animals;
+        private static Random rand = new Random();
 
         private Animal solvedAnimal;
         private string action;
@@ -17,8 +18,26 @@ namespace What_The_Fox_Say
         {
             animals = AvailableAnimals();
             // negative for odd values
-            bool negative = ScanInputForInformation(toDecode) % 2 != 0;            
+            bool negative = ScanInputForInformation(toDecode) % 2 != 0;
 
+            if (negative)
+            {
+                if (animals.Count < 2)
+                {
+                    solvedAnimal = null;
+                }
+                else
+                {
+
+                    Type t;
+                    do
+                    {
+                        t = animals.ElementAt(rand.Next(0, animals.Count)).Value;
+                    } while (solvedAnimal.GetType().Equals(t));
+
+                    solvedAnimal = (Animal)Activator.CreateInstance(t);
+                }
+            }
         }
 
         // returns the frequency of negation, updates solvedAnimal regardless of negation result
@@ -39,7 +58,7 @@ namespace What_The_Fox_Say
                     animals.TryGetValue(lowercase, out t);
                     solvedAnimal = (Animal)Activator.CreateInstance(t);
                 }
-                else if (lowercase.Equals("n't") || lowercase.Equals("not"))
+                else if (lowercase.Contains("n't") || lowercase.Equals("not") || lowercase.Contains("nt"))
                 {
                     freq++;
                 }
@@ -56,7 +75,7 @@ namespace What_The_Fox_Say
 
             foreach (Type i in t)
             {
-                map.Add(i.ToString().ToLowerInvariant(), i);
+                map.Add(i.Name.ToLowerInvariant(), i);
             }
 
             return map;
