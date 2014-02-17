@@ -83,7 +83,7 @@ namespace What_The_Fox_Say
             Console.WriteLine();
             Console.WriteLine("Example: Cat says?");
             Console.WriteLine();
-            Console.WriteLine("The following are the available animals that you can query about in this program");
+            Console.WriteLine("Available animals to query (the rest are on strike):");
 
             List<string> animals = InputDecoder.getAnimalList();
 
