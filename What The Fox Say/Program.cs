@@ -67,11 +67,13 @@ namespace What_The_Fox_Say
 
         static void printAboutMessage()
         {
-            Console.WriteLine("Created by Ben Du as a fun GitHub project");
+            Console.WriteLine("Created by dragon slayer and the ethereal Ben Du as a fun GitHub project");
             Console.WriteLine();
             Console.WriteLine("Pls follow me on GitHub: bendu");
             Console.WriteLine();
-            Console.WriteLine("Tip: try asking what the fox says multiple times.");
+            Console.WriteLine("Tip: try asking what the fox says multiple times. :p");
+            Console.WriteLine();
+            Console.WriteLine("Fun fact: This was written in C# for no apparent reason at all. (I also keep typing C$, coincidence??)");
             Console.WriteLine();
         }
 
@@ -80,6 +82,16 @@ namespace What_The_Fox_Say
             Console.WriteLine("Type in freeform input and (hopefully) get a meaningful response!");
             Console.WriteLine();
             Console.WriteLine("Example: Cat says?");
+            Console.WriteLine();
+            Console.WriteLine("The following are the available animals that you can query about in this program");
+
+            List<string> animals = InputDecoder.getAnimalList();
+
+            foreach (string animal in animals)
+            {
+                Console.WriteLine("-> " + animal);
+            }
+
             Console.WriteLine();
         }
     }

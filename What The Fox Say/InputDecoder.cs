@@ -8,7 +8,7 @@ namespace What_The_Fox_Say
 {
     class InputDecoder
     {
-        private static Dictionary<string, Type> animals;
+        private static Dictionary<string, Type> animals = AvailableAnimals();
         private static Random rand = new Random();
 
         private Animal solvedAnimal;
@@ -16,7 +16,6 @@ namespace What_The_Fox_Say
 
         public InputDecoder(string toDecode)
         {
-            animals = AvailableAnimals();
             // negative for odd values
             bool negative = ScanInputForInformation(toDecode) % 2 != 0;
 
@@ -61,7 +60,7 @@ namespace What_The_Fox_Say
                     solvedAnimal = (Animal)Activator.CreateInstance(t);
                 }
                 else if (action == null && (lowercase.Contains("speak") || lowercase.Contains("say")
-                    || lowercase.Contains("go") || lowercase.Contains("sound")))
+                    || lowercase.Contains("go") || lowercase.Contains("sound") || lowercase.Contains("said")))
                 {
                     // speak action
                     action = "Speak";
@@ -77,7 +76,7 @@ namespace What_The_Fox_Say
             return freq;
         }
 
-        private Dictionary<string, Type> AvailableAnimals()
+        private static Dictionary<string, Type> AvailableAnimals()
         {
             var t = typeof(Animal).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof(Animal)));
             Dictionary<string, Type> map = new Dictionary<string, Type>();
@@ -99,6 +98,14 @@ namespace What_The_Fox_Say
         public string GetAction()
         {
             return action;
+        }
+
+        public static List<string> getAnimalList()
+        {
+            Dictionary<string, Type>.KeyCollection keys = animals.Keys;
+
+            List<string> ret = new List<string>(keys);
+            return ret;
         }
     }
 }
