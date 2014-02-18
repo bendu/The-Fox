@@ -18,7 +18,8 @@ namespace What_The_Fox_Say
                 string input = Console.ReadLine();
 
                 if (input.Equals("") || input.Equals("exit", StringComparison.OrdinalIgnoreCase)
-                    || input.Equals("quit", StringComparison.OrdinalIgnoreCase))
+                    || input.Equals("quit", StringComparison.OrdinalIgnoreCase)
+                    || input.Equals("q", StringComparison.OrdinalIgnoreCase))
                     break;
 
                 if (input.Equals("about", StringComparison.OrdinalIgnoreCase))
@@ -73,7 +74,7 @@ namespace What_The_Fox_Say
             Console.WriteLine();
             Console.WriteLine("Tip: try asking what the fox says multiple times. :p");
             Console.WriteLine();
-            Console.WriteLine("Fun fact: This was written in C# for no apparent reason at all. (I also keep typing C$, coincidence??)");
+            Console.WriteLine("Fun fact: This was written in C# for no apparent reason at all. (I also keep typing C$ by mistake, coincidence??)");
             Console.WriteLine();
         }
 

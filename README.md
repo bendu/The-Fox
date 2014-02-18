@@ -3,6 +3,7 @@ The-Fox
 
 Polymorphism's ancient mystery
 
+Shows polymorphism in action using a lot of reflection.
 
 Get the files. Compile the project and run Program.cs binary. Type anything (animal related) you want
 
@@ -14,4 +15,4 @@ Fox does not say?
 Seal doesn't speak
 Speak isn't frog.
 
-For (rather poor) help. Type 'halp' or 'help'
+For help. Type 'halp' or 'help'
